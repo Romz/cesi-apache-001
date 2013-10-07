@@ -49,7 +49,7 @@ Ce fichier devra afficher les paramètre GET category et l'id de l'article. Voic
     <?php print $_GET['category']; ?>
 	<?php print $_GET['articleId']; ?>
 
-Réécrivez l'url pour qu'elle ai la forme suivante: baseurl/<category>/article-<articleId>.html
+Réécrivez l'url pour qu'elle ai la forme suivante: baseurl/category/article-articleId.html
 
 
 Exo3
