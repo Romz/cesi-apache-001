@@ -2,10 +2,32 @@ Authentification basique et htpasswd
 ====================================
 [Doc Authentification](http://httpd.apache.org/docs/2.2/howto/auth.html)
 
-Filtrage Ip
+
+
+Control d'accès
 ===========
+
+Exo1:
+-----
+Limiter l'accès au vhost qu'à une certaine IP
+
+Exo2
+----
+Limiter l'accès au vhost qu'au requête venant du même réseau local
+
+Exo3
+----
+Interdir une ip particulière d'accéder au réseau
+
+Exo4
+----
+Interdir le téléchargement des fichiers .htaccess
 
 HTTPS
 =====
 [Doc SSL](https://httpd.apache.org/docs/2.4/fr/ssl/ssl_howto.html)
 
+Exo
+---
+
+Mettre en place l'https sur le serveur

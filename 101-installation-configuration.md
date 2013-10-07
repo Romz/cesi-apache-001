@@ -77,21 +77,21 @@ On crée un vhost à l'aide de la directive:
 	</VirturalHost>
 
 Si on regarde le fichier sites-available/default, on remarque que le vhost est configuré pour accépter les requêtes de toutes les ips de la machine qui sont émisent sur le port 80.
-Le DocumentRoot pointe sur /var/www. Si on va dans ce répertoire, on trouve le fichier html avec le code du "It works"
+Le DocumentRoot pointe sur /var/www. Si on va dans ce répertoire, on trouve le fichier html avec le code du "It works".
 
 Exercices
 =========
 
 Chaque nouveau vhost devra être configuré dans des fichiers séparé et placé dans le répertoire sites-available.
-N'oubliez pas de changer votre fichier hosts pour faire pointer les noms sur votre ip local
+N'oubliez pas de changer votre fichier hosts pour faire pointer les noms sur votre ip local.
 
 Exo 1:
 ------
-Changer la page par défault index.html
+Changer la page par défault index.html.
 
 Exo 2:
 ------
-Changer en index.php et mettre un bout de php
+Changer en index.php et mettre un bout de php.
 
 Exo 3:
 ------
@@ -100,8 +100,8 @@ Créer un nouveau vhost basé sur le nom site1.com pointant sur le répertoire /
 Exo 4:
 ------
 Créer un nouveau répertoire dans votre répertoire personnel : ~/sites/ avec un fichier index.html dedans.
-Ajouter un lien symbolique vers ce nouveau répertoire dans /var/www2/
-Modifier la configuration du vhost pour pouvoir accéder à ce répertoire
+Ajouter un lien symbolique vers ce nouveau répertoire dans /var/www2/ .
+Modifier la configuration du vhost pour pouvoir accéder à ce répertoire.
 
 Exo 5:
 ------
@@ -111,9 +111,9 @@ Modifier la configuration du vhost pour empêcher l'indexation des fichiers d'in
 Exo 6:
 ------
 Ajouter un nouveau vhost à l'écoute sur le port 8080 pointant vers le répertoire /var/www3/.
-Changer la page d'erreur 404 pour pointer vers un fichier error404.html
+Changer la page d'erreur 404 pour pointer vers un fichier error404.html.
 
 Exo 7:
 ------
-Modifier la configuration des 2 vhosts pour mettre un fichier de log d'erreur dédier (<servername>.error.log)
+Modifier la configuration des 2 vhosts pour mettre un fichier de log d'erreur dédier (<servername>.error.log).
 
