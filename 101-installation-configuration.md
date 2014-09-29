@@ -93,7 +93,7 @@ Changer la page par défault index.html.
 
 Exo 2:
 ------
-Changer en index.php et mettre un bout de php.
+Changer en index.php et mettre un bout de php (ex: print "test";).
 
 Exo 3:
 ------
