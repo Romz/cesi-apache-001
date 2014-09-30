@@ -114,7 +114,7 @@ Exo 5:
 Ajouter un nouveau répertoire /var/www2/override/.
 Modifier la configuration du vhost pour empêcher l'indexation des fichiers d'index et de suivre les liens symbolique, uniquement pour le répertoire override.
 
-Tip: Directive <Directory>
+Tip: Directive Directory
 
 Exo 6:
 ------
