@@ -12,11 +12,11 @@ Limiter l'accès au vhost qu'à une certaine IP.
 
 Exo2
 ----
-Limiter l'accès au vhost qu'au requête venant du même réseau local.
+Interdir une ip particulière d'accéder au réseau.
 
 Exo3
 ----
-Interdir une ip particulière d'accéder au réseau.
+Limiter l'accès au vhost qu'au requête venant du même réseau local.
 
 Exo4
 ----
