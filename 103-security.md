@@ -16,7 +16,7 @@ Interdir une ip particulière d'accéder au réseau.
 
 Exo3
 ----
-Limiter l'accès au vhost qu'au requête venant du même réseau local.
+Mettre une authentification par mot de passe sur le dossier /admin.
 
 Exo4
 ----
