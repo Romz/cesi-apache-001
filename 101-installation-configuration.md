@@ -89,11 +89,11 @@ Vous pouvez trouver la liste des directives [ici](http://httpd.apache.org/docs/2
 
 Exo 1:
 ------
-Changer la page par défault index.html.
+Changer le contenu de la page par défault index.html.
 
 Exo 2:
 ------
-Changer en index.php et mettre un bout de php (ex: print "test";).
+Renommer en index.php et mettre un bout de php (ex:  <?php print "test"; ?>).
 
 Exo 3:
 ------
