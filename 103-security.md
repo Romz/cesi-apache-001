@@ -24,7 +24,7 @@ Directory, Order, Deny, Allow
 Exercice 2
 ----------
 
-Reprednre le vhost de l'exercice1.
+Reprendre le vhost de l'exercice1.
 Ajouter un fichier no-download.txt.
 Interdir le téléchargement de se fichier.
 
@@ -44,6 +44,14 @@ Ajouter l'authentification pour accéder au répertoire
 
 Directives à utiliser:
 AuthType, AuthName, AuthBasicProvider, AuthUserFile, Require
+
+Exercice 4
+----------
+
+Nous allons reprendre le vhost de l'exercice précédant.
+
+Bloquer le télégargement de tous les fichier .ht.
+
 
 HTTPS
 =====
