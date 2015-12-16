@@ -33,8 +33,8 @@ Si on essaye d'accéder au fichier torewrite.html, l'url sera réécrit pour aff
 Exercices
 =========
 
-Exo1
-----
+Exercice 1
+----------
 Forcer le www avant le nom de domaine (si on accede a site1.com, rediriger sur www.site1.com). Rediriger avec le code 301
 
 Tips:
@@ -42,8 +42,8 @@ Tips:
 - Utiliser le flag R pour le redirect avec le code
 - Utiliser la variable d'environnement HTTP_HOST
 
-Exo2
-----
+Exercice 2
+----------
 
 Créer un fichier index.php dans un de vos site.
 Ce fichier devra afficher les paramètre GET category et l'id de l'article. Voici le code: 
@@ -53,23 +53,25 @@ Ce fichier devra afficher les paramètre GET category et l'id de l'article. Voic
 
 Réécrivez l'url pour qu'elle ai la forme suivante: {baseurl}/{category}/{articleId}
 
-Exo3
-----
+Exercice 3
+----------
+
 Empêcher l'utilisation des images depuis un autre site
 
 Tips:
 - Utiliser la variable d'environnement HTTP_REFERER
 - Utiliser le flag F pour interdir l'accès
 
-Exo4
-----
+Exercice 4
+----------
+
 Forcer l'utilisation de l'https pour le site
 
 Tips:
 - Utiliser les variable d'environnement SERVER_PORT, HTTP_HOST et REQUEST_URI
 
-Exo5
-----
+Exercice 5
+----------
 Reprendre la règle de l'exo 4 mais forcer l'https que pour les pages admin.
 Exemple d'url d'admin: site1.com/admin/article.html.
 
