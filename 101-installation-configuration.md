@@ -81,47 +81,104 @@ Le DocumentRoot pointe sur /var/www. Si on va dans ce répertoire, on trouve le 
 
 
 Exercices
-=========
+=============
 
-Chaque nouveau vhost devra être configuré dans des fichiers séparés et placé dans le répertoire sites-available.
-N'oubliez pas de changer votre fichier hosts pour faire pointer les noms sur votre ip local (Il se trouve ici: /etc/hosts).
-Vous pouvez trouver la liste des directives [ici](http://httpd.apache.org/docs/2.4/mod/directives.html)
+- Chaque nouveau vhost devra être configuré dans des fichiers séparés et placé dans le répertoire sites-available.
+- Changer votre fichier hosts (/etc/hosts), pour diriger les noms de domaine sur votre ip.
+- Redémarrer apache à chaque modification de la configuration (sudo service apache2 restart).
+- N'oubliez pas d'activer vos site (a2ensite <nom du site>).
 
-Exo 1:
-------
-Changer le contenu de la page par défault index.html.
+Exercice 1
+----------
 
-Exo 2:
-------
-Renommer en index.php et mettre un bout de php (ex:  <?php print "test"; ?>).
+Créer un vhost repondant au nom de domaine site1.local et renvoyant une page index.html avec de l'html basique (Un hello world par exemple).
+Le repertoire racine de ce vhost sera /www/site1.
 
-Exo 3:
-------
-Créer un nouveau vhost basé sur le nom site1.com pointant sur le répertoire /var/www2/ en indexant uniquement les fichiers index.html.
+Renommer le fichier index.html en index.php, et y ajouter un bout de php (par exemple <?php print "Ceci est du texte &eacute;crit en php"; ?>).
+Tester pour voir si le fichier PHP est bien interprété.
 
-Tip: Utiliser la directive DirectoryIndex
+Directives à utiliser:
+ServerName, DocumentRoot, VirtualHost
 
-Exo 4:
-------
-Créer un nouveau répertoire dans votre répertoire personnel : ~/sites/ avec un fichier index.html dedans.
-Ajouter un lien symbolique vers ce nouveau répertoire dans /var/www2/.
-Modifier la configuration du vhost pour pouvoir accéder à ce répertoire.
+Exercice 2
+----------
 
-Tip: Utiliser la directive Options
+Créer un nouveau vhost avec le nom de domaine site2.local et le port 8080 et pointant sur le répertoire /www/site2.
+Dans ce vhost, indexer uniquement les fichier qui s'appel accueil.html.
+Créer le fichier accueil.html avec de l'html pour tester.
 
-Exo 5:
-------
-Ajouter un nouveau répertoire /var/www2/override/.
-Modifier la configuration du vhost pour empêcher l'indexation des fichiers d'index et de suivre les liens symbolique, uniquement pour le répertoire override.
+Directives à utiliser:
+Listen, DirectoryIndex
 
-Tip: Directive Directory
+Exercice 3
+----------
 
-Exo 6:
-------
-Ajouter un nouveau vhost à l'écoute sur le port 8080 pointant vers le répertoire /var/www3/.
-Changer la page d'erreur 404 pour pointer vers un fichier error404.html.
+Dans cet exercice, nous allons faire un systeme de release grâce aux liens symbolique.
 
-Exo 7:
-------
-Modifier la configuration des 2 vhosts pour mettre un fichier de log d'erreur dédié (<servername>.error.log).
+Dans votre répertoire personnel (~), créer un repertoire site3, avec dedans 2 répertoires: release1, release2
+Ajouter dans chaque répertoire un fichier index.html avec un contenu différent.
+
+Créer le répertoire /www/site3. Dans ce répertoire, créer un lien symbolique vers le répertoire release1 avec pour nom current (avec la commande ln -s <cible> <nom>).
+Ce qui donne l'arborescence suivante: /www/site3/current
+
+Créer un nouveau vhost avec le non de dommaine site3.local pointant sur le repertoire site3/current. Ajouter la possibilité de suivre les liens symbolique (Directive Option)
+
+Tester que c'est bien le fichier index.html du répertoire release1 qui est appelé.
+
+Mainenant, nous allons changer le lien symbolique pour pointer sur le repertoire release2.
+
+Vous pouvez maintenant changer le site juste en changeant le lien symbolique.
+
+Nous allons maintenant créer un repertoire partager à toutes les release (Pour y mettre des images par exemple).
+
+Dans le répertoire site3 ajouter un répertoire shared avec des fichiers dedans.
+Dans les répertoires release1 et release2, créer un lien symbolique vers le fichier shared.
+Maintenant, tester d'accéder à ce réperoire depuis le navigateur (http://site3.local/shared).
+Normalement, peut importe la release, le dossier contient les mêmes images.
+
+Directives à utiliser: Option, FollowSymLink
+
+Exercice 4
+----------
+
+Pour cet exercice, nous allons reprendre le vhost de l'exercice 3.
+
+Nous allons pour cela créer un alias qui fera pointer l'adresse site4.local sur ce vhost. Pour cela, utiliser la directive ServerAlias.
+
+Nous allons empêcher le listing du répertoire shared.
+Pour cela, il faut créer un portion de configuration avec la directive Directory.
+Dans cet portion de configuration, nous allons enlever les Options Index et FollowSymLinks (avec un -).
+
+Créer un lien symbolique de le repertoire shared pour être sûr qu'on ne puisse pas y accéder.
+Essayer d'accéder au répertoire shared pour voir si il y a bien une erreur.
+
+Directives à utiliser: ServerAlias, Option, Directory
+
+Exercice 5
+----------
+
+Pour cet exercice, nous allons garder le même vhost que l'exercice précédant.
+
+Le but de cet exercice est de créer des pages d'erreurs personnalisées.
+Pour cela nous allons utiliser la directive ErrorDocument.
+
+Pour l'erreur 403 (forbidden), mettre juste le texte "Vous ne pouvez pas accéder à cette page.".
+Pour l'erreur 404 (Page not found), afficher le contenu d'une page HTMl error404.html.
+
+Pour l'erreur 404 uniquement dans le répertoire shared, afficher le texte "Vous n'êtes pas autorisé à accéder au répertoire partagé.".
+
+Directives à utiliser: Directory, ErrorDocument
+
+Exercice 6
+----------
+
+Pour cet exercice, nous allons garder le même vhost que l'exercice précédant.
+
+Le but de cet exercice est de manipuler les fichier logs de votre vhost.
+
+À l'aide de la directive ErrorLog, changer l'emplacement du log d'erreur pour le rediriger vers /var/log/apache2/exo3.error.log.
+
+Vous pouvez changer le format des erreurs avec la directive ErrorLogFormat
+
+Directives à utiliser: ErrorLog, ErrorLogFormat
 
