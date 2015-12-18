@@ -131,7 +131,7 @@ Vous pouvez maintenant changer le site juste en changeant le lien symbolique.
 
 Nous allons maintenant créer un repertoire partager à toutes les release (Pour y mettre des images par exemple).
 
-Dans le répertoire site3 ajouter un répertoire shared avec des fichiers dedans.
+Dans le répertoire ~/site3 ajouter un répertoire shared avec des fichiers dedans.
 Dans les répertoires release1 et release2, créer un lien symbolique vers le fichier shared.
 Maintenant, tester d'accéder à ce réperoire depuis le navigateur (http://site3.local/shared).
 Normalement, peut importe la release, le dossier contient les mêmes images.
