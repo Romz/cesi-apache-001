@@ -6,7 +6,7 @@ Il y a plusieurs méthode pour installer un serveur apache2 sur un serveur debia
 Installation de LAMP
 --------------------
 
-LAMP (Linux Apche MySQL PHP), est un serveur apache préconfiguré pour l'utilisation de PHP et MySQL.
+LAMP (Linux Apache MySQL PHP), est un serveur apache préconfiguré pour l'utilisation de PHP et MySQL.
 Pour installer un LAMP, on utiliser la commande suivante (le ^ n'est pas une faute de frappe):
 
     sudo apt-get install lamp-server^
